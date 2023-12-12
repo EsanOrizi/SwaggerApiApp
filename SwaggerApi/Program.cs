@@ -9,7 +9,10 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.UseSwagger(opts =>
+    {
+        opts.SerializeAsV2 = true;
+    });
     app.UseSwaggerUI(opts =>
     {
         opts.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
